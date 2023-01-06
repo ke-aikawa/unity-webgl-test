@@ -100,6 +100,7 @@
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
+      var gameInstance = null;
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
@@ -109,6 +110,7 @@
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
+          gameInstance = unityInstance;
         }).catch((message) => {
           alert(message);
         });
